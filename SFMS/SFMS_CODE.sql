@@ -1,0 +1,1016 @@
+--------------------------------------------------------
+--  File created - Sunday-December-07-2025   
+--------------------------------------------------------
+DROP TABLE "JAVERIA"."DEPARTMENT";
+DROP TABLE "JAVERIA"."FUNDING_SOURCE";
+DROP TABLE "JAVERIA"."RESULT";
+DROP TABLE "JAVERIA"."SCHOLARSHIP";
+DROP TABLE "JAVERIA"."STUDENT";
+DROP TABLE "JAVERIA"."UNIVERSITY";
+DROP VIEW "JAVERIA"."CHECK_INFO";
+DROP VIEW "JAVERIA"."CHECK_STUDENT_INFO";
+DROP VIEW "JAVERIA"."STD_INFO";
+DROP VIEW "JAVERIA"."STD_INFOO";
+DROP VIEW "JAVERIA"."STD_INFORMATION";
+DROP VIEW "JAVERIA"."STUDENT_INFO";
+DROP VIEW "JAVERIA"."TEST";
+DROP PROCEDURE "JAVERIA"."ADD_DEPARTMENT_MIN";
+DROP PROCEDURE "JAVERIA"."ADD_FUNCDING_SOURCE_MIN";
+DROP PROCEDURE "JAVERIA"."ADD_FUNDING_SOURCE_MIN";
+DROP PROCEDURE "JAVERIA"."ADD_SCHOLARSHIP";
+DROP PROCEDURE "JAVERIA"."ADD_SCHOLARSHIP_MIN";
+DROP PROCEDURE "JAVERIA"."ADD_STUDENT";
+DROP PROCEDURE "JAVERIA"."ADD_STUDENT_MIN";
+DROP PROCEDURE "JAVERIA"."DELETE_DEPARTMENT";
+DROP PROCEDURE "JAVERIA"."DELETE_FUNDING_SOURCE";
+DROP PROCEDURE "JAVERIA"."DELETE_SCHOLARSHIP";
+DROP PROCEDURE "JAVERIA"."DELETE_STUDENT";
+DROP PROCEDURE "JAVERIA"."DEPARTMENT_MIN";
+DROP PROCEDURE "JAVERIA"."UPDATE_DEPARTMENT";
+DROP PROCEDURE "JAVERIA"."UPDATE_DEPPARTMENT";
+DROP PROCEDURE "JAVERIA"."UPDATE_FUNDING_SOURCE";
+DROP PROCEDURE "JAVERIA"."UPDATE_SCHOLARSHIP";
+DROP PROCEDURE "JAVERIA"."UPDATE_STUDENT";
+DROP FUNCTION "JAVERIA"."GET_SCHOLARSHIP_AMOUNT";
+DROP FUNCTION "JAVERIA"."GET_SCHOLARSHIP_TYPE";
+DROP FUNCTION "JAVERIA"."GET_STUDENT_ADD_DATE";
+DROP FUNCTION "JAVERIA"."GET_STUDENT_PHN_NO";
+DROP FUNCTION "JAVERIA"."GET_STUDENT_PROGRAM";
+DROP FUNCTION "JAVERIA"."GET_STUDENT_SEMESTER";
+--------------------------------------------------------
+--  DDL for Table DEPARTMENT
+--------------------------------------------------------
+
+  CREATE TABLE "JAVERIA"."DEPARTMENT" 
+   (	"D_ID" NUMBER, 
+	"D_NAME" VARCHAR2(100 BYTE), 
+	"C_NAME" VARCHAR2(20 BYTE), 
+	"UNI_ID" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table FUNDING_SOURCE
+--------------------------------------------------------
+
+  CREATE TABLE "JAVERIA"."FUNDING_SOURCE" 
+   (	"F_SOURCE_ID" NUMBER, 
+	"SOURCE_NAME" VARCHAR2(20 BYTE), 
+	"PHONE_NO" NUMBER, 
+	"EMAIL_ID" VARCHAR2(20 BYTE), 
+	"TYPE" VARCHAR2(20 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table RESULT
+--------------------------------------------------------
+
+  CREATE TABLE "JAVERIA"."RESULT" 
+   (	"R_ID" NUMBER, 
+	"SEMESTER" NUMBER, 
+	"STD_ID" NUMBER, 
+	"CGPA" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table SCHOLARSHIP
+--------------------------------------------------------
+
+  CREATE TABLE "JAVERIA"."SCHOLARSHIP" 
+   (	"S_ID" NUMBER, 
+	"S_NAME" VARCHAR2(20 BYTE), 
+	"START_DATE" DATE, 
+	"TOTAL_AMOUNT" NUMBER, 
+	"END_DATE" DATE, 
+	"FUND_TYPE" VARCHAR2(20 BYTE), 
+	"F_SOURCE_ID" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table STUDENT
+--------------------------------------------------------
+
+  CREATE TABLE "JAVERIA"."STUDENT" 
+   (	"STD_ID" NUMBER, 
+	"FIRST_NAME" VARCHAR2(20 BYTE), 
+	"LAST_NAME" VARCHAR2(20 BYTE), 
+	"CNIC" NUMBER, 
+	"GENDER" VARCHAR2(20 BYTE), 
+	"STD_PHONE_NO" NUMBER, 
+	"PROGRAM" VARCHAR2(20 BYTE), 
+	"ADDMISSION_DATE" DATE, 
+	"SEMESTER" NUMBER, 
+	"S_ID" NUMBER, 
+	"D_ID" NUMBER
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+  GRANT DELETE ON "JAVERIA"."STUDENT" TO "ALI";
+  GRANT INSERT ON "JAVERIA"."STUDENT" TO "ALI";
+  GRANT UPDATE ON "JAVERIA"."STUDENT" TO "ALI";
+  GRANT SELECT ON "JAVERIA"."STUDENT" TO "ALI";
+  GRANT SELECT ON "JAVERIA"."STUDENT" TO "AHMAD";
+--------------------------------------------------------
+--  DDL for Table UNIVERSITY
+--------------------------------------------------------
+
+  CREATE TABLE "JAVERIA"."UNIVERSITY" 
+   (	"UNI_ID" NUMBER, 
+	"UNI_NAME" VARCHAR2(20 BYTE), 
+	"C_NAME" VARCHAR2(20 BYTE), 
+	"UNI_PHONE_NO" VARCHAR2(20 BYTE), 
+	"UNI_LOCATION" VARCHAR2(20 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for View CHECK_INFO
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE EDITIONABLE VIEW "JAVERIA"."CHECK_INFO" ("FIRST_NAME", "LAST_NAME", "CNIC", "PROGRAM", "SEMESTER") AS 
+  SELECT first_name, last_name, cnic, program, semester
+FROM STUDENT
+;
+  GRANT SELECT ON "JAVERIA"."CHECK_INFO" TO "STUDENT1";
+  GRANT SELECT ON "JAVERIA"."CHECK_INFO" TO "STUDENT";
+--------------------------------------------------------
+--  DDL for View CHECK_STUDENT_INFO
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE EDITIONABLE VIEW "JAVERIA"."CHECK_STUDENT_INFO" ("FIRST_NAME", "LAST_NAME", "CNIC", "PROGRAM", "TOTAL_AMOUNT", "FUND_TYPE", "SOURCE_NAME", "PHONE_NO") AS 
+  SELECT std.first_name, std.last_name,std.CNIC, std.program, s.total_amount, s.fund_type, f.source_name, f.phone_no
+from student std
+join scholarship s on std.s_id = s.s_id
+join funding_source f on s.f_source_id = f.f_source_id
+;
+  GRANT SELECT ON "JAVERIA"."CHECK_STUDENT_INFO" TO "STAFF";
+--------------------------------------------------------
+--  DDL for View STD_INFO
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE EDITIONABLE VIEW "JAVERIA"."STD_INFO" ("FIRST_NAME", "LAST_NAME", "CNIC", "PROGRAM", "SEMESTER") AS 
+  SELECT FIRST_NAME, LAST_NAME, CNIC, PROGRAM, SEMESTER
+FROM STUDENT
+;
+  GRANT SELECT ON "JAVERIA"."STD_INFO" TO "STUDENT2";
+  GRANT INSERT ON "JAVERIA"."STD_INFO" TO "STUDENT3";
+  GRANT SELECT ON "JAVERIA"."STD_INFO" TO "STUDENT3";
+--------------------------------------------------------
+--  DDL for View STD_INFOO
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE EDITIONABLE VIEW "JAVERIA"."STD_INFOO" ("FIRST_NAME", "LAST_NAME", "CNIC", "SEMESTER") AS 
+  SELECT FIRST_NAME, LAST_NAME, CNIC, SEMESTER
+FROM STUDENT
+;
+  GRANT INSERT ON "JAVERIA"."STD_INFOO" TO "STUDENT3";
+  GRANT SELECT ON "JAVERIA"."STD_INFOO" TO "STUDENT3";
+--------------------------------------------------------
+--  DDL for View STD_INFORMATION
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE EDITIONABLE VIEW "JAVERIA"."STD_INFORMATION" ("STD_ID", "FIRST_NAME", "LAST_NAME", "CNIC", "SEMESTER") AS 
+  SELECT std_id, FIRST_NAME, LAST_NAME, CNIC, SEMESTER
+FROM STUDENT
+;
+  GRANT INSERT ON "JAVERIA"."STD_INFORMATION" TO "STUDENT3";
+  GRANT SELECT ON "JAVERIA"."STD_INFORMATION" TO "STUDENT3";
+--------------------------------------------------------
+--  DDL for View STUDENT_INFO
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE EDITIONABLE VIEW "JAVERIA"."STUDENT_INFO" ("F_SOURCE_ID", "S_ID", "STD_ID", "FIRST_NAME", "LAST_NAME", "CNIC", "GENDER", "STD_PHONE_NO", "PROGRAM", "ADDMISSION_DATE", "SEMESTER", "D_ID", "S_NAME", "START_DATE", "TOTAL_AMOUNT", "END_DATE", "FUND_TYPE", "SOURCE_NAME", "PHONE_NO", "EMAIL_ID", "TYPE") AS 
+  SELECT "F_SOURCE_ID","S_ID","STD_ID","FIRST_NAME","LAST_NAME","CNIC","GENDER","STD_PHONE_NO","PROGRAM","ADDMISSION_DATE","SEMESTER","D_ID","S_NAME","START_DATE","TOTAL_AMOUNT","END_DATE","FUND_TYPE","SOURCE_NAME","PHONE_NO","EMAIL_ID","TYPE"
+from student  NATURAL join scholarship NATURAL JOIN FUNDING_SOURCE
+;
+  GRANT INSERT ON "JAVERIA"."STUDENT_INFO" TO "MANAGEMNT";
+  GRANT SELECT ON "JAVERIA"."STUDENT_INFO" TO "MANAGEMNT";
+  GRANT UPDATE ON "JAVERIA"."STUDENT_INFO" TO "MANAGEMNT";
+--------------------------------------------------------
+--  DDL for View TEST
+--------------------------------------------------------
+
+  CREATE OR REPLACE FORCE EDITIONABLE VIEW "JAVERIA"."TEST" ("FIRST_NAME", "LAST_NAME") AS 
+  SELECT FIRST_NAME, LAST_NAME
+FROM STUDENT
+;
+  GRANT SELECT ON "JAVERIA"."TEST" TO "AHMAD";
+REM INSERTING into JAVERIA.DEPARTMENT
+SET DEFINE OFF;
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (101,'Computer Science','Main Campus',1);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (102,'Computer Science','City Campus',2);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (103,'Engineering','Main Campus',1);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (104,'Engineering','City Campus',2);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (105,'Arts, Science and Technology','Main Campus',1);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (106,'Arts, Science and Technology','Downtown Campus',3);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (107,'Arts, Science and Technology','City Campus',2);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (108,'Business Management','Main Campus',1);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (109,'Business Management','Downtown Campus',3);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (110,'Business Management','City Campus',2);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (111,'Law and Criminology','Main Campus',1);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (112,'Law and Criminology','Downtown Campus',3);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (113,'Natural and Applied Science','Main Campus',1);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (114,'Natural and Applied Science','Downtown Campus',3);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (115,'Natural and Applied Science','City Campus',2);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (116,'Social Science and Humanities','Main Campus',1);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (117,'Social Science and Humanities','Downtown Campus',3);
+Insert into JAVERIA.DEPARTMENT (D_ID,D_NAME,C_NAME,UNI_ID) values (118,'Social Science and Humanities','City Campus',2);
+REM INSERTING into JAVERIA.FUNDING_SOURCE
+SET DEFINE OFF;
+Insert into JAVERIA.FUNDING_SOURCE (F_SOURCE_ID,SOURCE_NAME,PHONE_NO,EMAIL_ID,TYPE) values (110,'Bait-ul-Mal',21111447,'Baitulmal','Prvt. NGO');
+Insert into JAVERIA.FUNDING_SOURCE (F_SOURCE_ID,SOURCE_NAME,PHONE_NO,EMAIL_ID,TYPE) values (120,'Alkhidmat',21003550,'Alkhidmat','Pvt. NGO');
+Insert into JAVERIA.FUNDING_SOURCE (F_SOURCE_ID,SOURCE_NAME,PHONE_NO,EMAIL_ID,TYPE) values (130,'UKAA',51661220,'Ukaa','Foreign Aid');
+Insert into JAVERIA.FUNDING_SOURCE (F_SOURCE_ID,SOURCE_NAME,PHONE_NO,EMAIL_ID,TYPE) values (140,'HEC',218811550,'Hec','Govt.');
+Insert into JAVERIA.FUNDING_SOURCE (F_SOURCE_ID,SOURCE_NAME,PHONE_NO,EMAIL_ID,TYPE) values (150,'SEEF',217722660,'Seef','Govt.');
+Insert into JAVERIA.FUNDING_SOURCE (F_SOURCE_ID,SOURCE_NAME,PHONE_NO,EMAIL_ID,TYPE) values (160,'PEEF',213322540,'Peef','Govt.');
+Insert into JAVERIA.FUNDING_SOURCE (F_SOURCE_ID,SOURCE_NAME,PHONE_NO,EMAIL_ID,TYPE) values (170,'Agha-khan-Funds',211122190,'Aghakhan','Prvt. NGO');
+REM INSERTING into JAVERIA.RESULT
+SET DEFINE OFF;
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (1,4,1,3.75);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (2,2,2,3.4);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (3,5,3,3.65);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (4,6,4,3.55);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (5,8,5,3.8);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (6,7,6,3.6);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (7,2,7,3.45);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (8,1,8,3.25);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (9,6,9,3.7);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (10,2,10,3.5);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (11,4,11,3.3);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (12,2,12,3.45);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (13,4,13,3.6);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (14,3,14,3.55);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (15,1,15,3.2);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (16,3,16,3.7);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (17,2,17,3.4);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (18,5,18,3.6);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (19,6,19,3.5);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (20,7,20,3.65);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (21,2,21,3.45);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (22,3,22,3.55);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (23,2,23,3.35);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (24,5,24,3.6);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (25,4,25,3.4);
+Insert into JAVERIA.RESULT (R_ID,SEMESTER,STD_ID,CGPA) values (26,0,null,0);
+REM INSERTING into JAVERIA.SCHOLARSHIP
+SET DEFINE OFF;
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (126,'N/A',null,1000,null,null,null);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (101,'MERIT BASE',to_date('01-AUG-24','DD-MON-RR'),65850,null,'Yearly',110);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (102,'MERIT BASE',to_date('01-JUL-25','DD-MON-RR'),65850,null,'Yearly',130);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (103,'MERIT_BASE',to_date('01-SEP-24','DD-MON-RR'),65850,null,'Semester-wise',150);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (104,'NEED_BASE',to_date('01-JUL-23','DD-MON-RR'),72000,null,'Yearly',140);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (105,'MERIT_BASE',to_date('07-AUG-22','DD-MON-RR'),80500,to_date('01-JAN-25','DD-MON-RR'),'Semester-wise',160);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (106,'SPORTS',to_date('15-DEC-22','DD-MON-RR'),55000,to_date('01-JUL-25','DD-MON-RR'),'Semester-wise',130);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (107,'TALENT_BASE',to_date('01-SEP-25','DD-MON-RR'),92000,null,'Semester-wise',170);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (108,'NEED_BASE',to_date('01-SEP-25','DD-MON-RR'),78000,null,'Yearly',140);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (109,'MERIT_BASE',to_date('26-AUG-23','DD-MON-RR'),64000,null,'Semester-wise',160);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (110,'SPORTS',to_date('01-AUG-25','DD-MON-RR'),50000,null,'Semester-wise',150);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (111,'TALENT_BASE',to_date('19-MAY-24','DD-MON-RR'),89000,null,'Semester-wise',140);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (112,'MERIT_BASE',to_date('01-DEC-24','DD-MON-RR'),76000,null,'Semester-wise',160);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (113,'NEED_BASE',to_date('25-SEP-23','DD-MON-RR'),83000,null,'Yearly',140);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (114,'SPORTS',to_date('01-NOV-25','DD-MON-RR'),72000,null,'Semester-wise',160);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (115,'MERIT_BASE',to_date('01-AUG-25','DD-MON-RR'),68000,null,'Semester-wise',120);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (116,'TALENT_BASE',to_date('01-DEC-24','DD-MON-RR'),94000,null,'Semester-wise',150);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (117,'MERIT_BASE',to_date('12-MAR-23','DD-MON-RR'),67000,to_date('01-JUL-25','DD-MON-RR'),'Semester-wise',170);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (118,'NEED_BASE',to_date('24-OCT-23','DD-MON-RR'),75000,null,'Yearly',140);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (119,'SPORTS',to_date('17-MAR-23','DD-MON-RR'),69500,null,'Semester-wise',130);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (120,'MERIT_BASE',to_date('22-NOV-22','DD-MON-RR'),82000,to_date('01-JUL-25','DD-MON-RR'),'Semester-wise',110);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (121,'TALENT_BASE',to_date('08-AUG-22','DD-MON-RR'),79000,to_date('01-JAN-25','DD-MON-RR'),'Semester-wise',140);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (122,'NEED_BASE',to_date('01-AUG-24','DD-MON-RR'),85000,null,'Yearly',160);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (123,'SPORTS',to_date('07-DEC-22','DD-MON-RR'),67000,to_date('01-JUL-25','DD-MON-RR'),'Semester-wise',130);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (124,'MERIT_BASE',to_date('26-JAN-24','DD-MON-RR'),90500,null,'Semester-wise',110);
+Insert into JAVERIA.SCHOLARSHIP (S_ID,S_NAME,START_DATE,TOTAL_AMOUNT,END_DATE,FUND_TYPE,F_SOURCE_ID) values (125,'TALENT_BASE',to_date('01-MAR-24','DD-MON-RR'),84500,null,'Semester-wise',150);
+REM INSERTING into JAVERIA.STUDENT
+SET DEFINE OFF;
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (1,'Javeria','Zia',4210158726342,'FEMALE',3172384383,'COMP_SCI',to_date('01-JAN-24','DD-MON-RR'),4,101,102);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (2,'Sarah','Khan',4210163942856,'FEMALE',3320307455,'AI',to_date('01-JAN-25','DD-MON-RR'),2,102,101);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (3,'Taha','Khan',4210175832197,'MALE',3170307944,'SOFTWARE_ENG',to_date('01-JUL-23','DD-MON-RR'),5,103,103);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (4,'Unaiza','Tariq',4210182651478,'FEMALE',3194308322,'DATA_SCI',to_date('01-JAN-23','DD-MON-RR'),6,104,102);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (5,'Hira','Siddique',4210197438262,'FEMALE',3164408333,'CYBER_SECURITY',to_date('01-JAN-22','DD-MON-RR'),8,105,102);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (6,'Muntaha','Sharif',4210126854736,'FEMALE',3165008320,'CHEMISTRY',to_date('01-JUL-22','DD-MON-RR'),7,106,114);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (7,'Hania','Kashif',4210138746520,'FEMALE',3123408973,'B_PHARMACY',to_date('01-JAN-25','DD-MON-RR'),2,107,113);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (29,'laraib',null,null,null,null,null,null,0,null,null);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (8,'Ali','Mohnsin',4210149673815,'MALE',3123408974,'BBA',to_date('01-JUL-25','DD-MON-RR'),1,108,110);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (9,'Sana','Shoaib',4210152364874,'FEMALE',3123408975,'COMP_ENG',to_date('01-JAN-23','DD-MON-RR'),6,109,103);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (10,'Areez','Malik',4210167853241,'MALE',3123408976,'GRAPHIC_DESIGN',to_date('01-JUL-25','DD-MON-RR'),2,110,116);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (11,'Hasan','Nasir',4210176429833,'FEMALE',3123408977,'SOCIOLOGY',to_date('01-JAN-24','DD-MON-RR'),4,111,117);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (12,'Zain','Khan',4210183952769,'MALE',3123408978,'EDUCATION',to_date('01-JUL-24','DD-MON-RR'),2,112,118);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (13,'Hiba','Ali',4210195647382,'FEMALE',3123408979,'CRIMINOLOGY',to_date('01-JAN-23','DD-MON-RR'),4,113,111);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (14,'Mohsin','Zohaib',4210128365791,'MALE',3123408980,'LAW',to_date('01-JUL-25','DD-MON-RR'),3,114,112);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (15,'Maira','Albash',4210139472654,'FEMALE',3123408981,'AGRICUL_SCI',to_date('01-JAN-25','DD-MON-RR'),1,115,117);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (16,'Hussain','Ali',4210147538297,'MALE',3172384384,'COMP_SCI',to_date('01-JUL-24','DD-MON-RR'),3,116,101);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (17,'Hunaina','Nadeem',4210156824376,'FEMALE',3320307456,'PSYCHOLOGY',to_date('01-JUL-22','DD-MON-RR'),2,117,117);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (18,'Rehan','Malik',4210169472835,'MALE',3170307945,'SOFTWARE_ENG',to_date('01-JUL-23','DD-MON-RR'),5,118,104);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (19,'Laiba','Aslam',4210175364928,'FEMALE',3194308323,'DATA_SCI',to_date('01-JAN-23','DD-MON-RR'),6,119,101);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (20,'Usman','Tariq',4210187623951,'MALE',3164408334,'CYBER_SECURITY',to_date('01-JUL-22','DD-MON-RR'),7,120,102);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (21,'Emaan','Rauf',4210193846574,'FEMALE',3165008321,'ENGLISH_LIT',to_date('01-JAN-22','DD-MON-RR'),2,121,118);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (22,'Omer','Shah',4210127538493,'MALE',3123408982,'MEDIA_SCI',to_date('01-JUL-24','DD-MON-RR'),3,122,107);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (23,'Zoya','Nasir',4210139462856,'FEMALE',3123408983,'ARCHITECTURE',to_date('01-JUL-22','DD-MON-RR'),2,123,106);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (24,'Bilal','Saleem',4210148356271,'MALE',3123408984,'EDUCATION',to_date('01-JUL-23','DD-MON-RR'),5,124,116);
+Insert into JAVERIA.STUDENT (STD_ID,FIRST_NAME,LAST_NAME,CNIC,GENDER,STD_PHONE_NO,PROGRAM,ADDMISSION_DATE,SEMESTER,S_ID,D_ID) values (25,'Sania','Khalid',4210157683420,'FEMALE',3123408985,'NUTRITION_SCI',to_date('01-JAN-24','DD-MON-RR'),4,125,113);
+REM INSERTING into JAVERIA.UNIVERSITY
+SET DEFINE OFF;
+Insert into JAVERIA.UNIVERSITY (UNI_ID,UNI_NAME,C_NAME,UNI_PHONE_NO,UNI_LOCATION) values (1,'FUUAST','Main Campus','213348111','Islambad');
+Insert into JAVERIA.UNIVERSITY (UNI_ID,UNI_NAME,C_NAME,UNI_PHONE_NO,UNI_LOCATION) values (2,'FUUAST','City Campus','213347111','Gulshan');
+Insert into JAVERIA.UNIVERSITY (UNI_ID,UNI_NAME,C_NAME,UNI_PHONE_NO,UNI_LOCATION) values (3,'FUUAST','Downtown Campus','212266111','Abdul Haq');
+--------------------------------------------------------
+--  DDL for Index UNIVERSITY_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "JAVERIA"."UNIVERSITY_PK" ON "JAVERIA"."UNIVERSITY" ("UNI_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index STUDENT_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "JAVERIA"."STUDENT_PK" ON "JAVERIA"."STUDENT" ("STD_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index SCHOLARSHIP_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "JAVERIA"."SCHOLARSHIP_PK" ON "JAVERIA"."SCHOLARSHIP" ("S_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index RESULT_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "JAVERIA"."RESULT_PK" ON "JAVERIA"."RESULT" ("R_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index FUNDING_SOURCE_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "JAVERIA"."FUNDING_SOURCE_PK" ON "JAVERIA"."FUNDING_SOURCE" ("F_SOURCE_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index DEPARTMENT_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "JAVERIA"."DEPARTMENT_PK" ON "JAVERIA"."DEPARTMENT" ("D_ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Trigger ADD_AMOUNT_TEMP
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."ADD_AMOUNT_TEMP" 
+before insert on scholarship
+for each row
+begin 
+if :new.total_amount is null then
+    :new.total_amount := 1000;
+    end if;
+end;
+/
+ALTER TRIGGER "JAVERIA"."ADD_AMOUNT_TEMP" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger ADD_CGPA
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."ADD_CGPA" 
+before insert on result
+for each row
+begin 
+if :new.cgpa is null then
+    :new.cgpa := 0;
+    end if;
+end;
+/
+ALTER TRIGGER "JAVERIA"."ADD_CGPA" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger ADD_DEPART_NAME
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."ADD_DEPART_NAME" 
+before insert on department
+for each row
+begin
+if :new.d_name is null then
+    :new.d_name := 'ABC';
+    end if;
+end;
+/
+ALTER TRIGGER "JAVERIA"."ADD_DEPART_NAME" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger ADD_RESULT_AFTER_STUDENT
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."ADD_RESULT_AFTER_STUDENT" 
+after insert on student
+for each row
+begin
+    insert into result(r_id, cgpa)
+    values((select nvl(max(r_id),100) + 1 from result), 0);
+end;
+/
+ALTER TRIGGER "JAVERIA"."ADD_RESULT_AFTER_STUDENT" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger ADD_SEMESTER
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."ADD_SEMESTER" 
+before insert on result
+for each row
+begin
+if :new.semester is null then 
+    :new.semester := 0;
+    end if;
+end;
+/
+ALTER TRIGGER "JAVERIA"."ADD_SEMESTER" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger ADD_SEMESTER_TEMP
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."ADD_SEMESTER_TEMP" 
+BEFORE INSERT ON student
+FOR EACH ROW
+BEGIN
+    IF :NEW.semester IS NULL THEN
+        :NEW.semester := 0;  
+    END IF;
+END;
+/
+ALTER TRIGGER "JAVERIA"."ADD_SEMESTER_TEMP" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger ADD_SOURCE_NAME
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."ADD_SOURCE_NAME" 
+before insert on funding_source
+for each row 
+begin 
+if :new.source_name is null then
+    :new.source_name := 'XYZ';
+    end if;
+end;
+/
+ALTER TRIGGER "JAVERIA"."ADD_SOURCE_NAME" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger CHECK_CNIC
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."CHECK_CNIC" 
+before update on student
+for each row
+begin
+if :old.cnic is null then
+    raise_application_error(30010, 'cannot insert the data');
+    end if;
+end;
+/
+ALTER TRIGGER "JAVERIA"."CHECK_CNIC" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger CHECK_DEPART_DELETE
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."CHECK_DEPART_DELETE" 
+before delete on department
+for each row
+begin
+if :old.d_name != 'ABC' then
+    raise_application_error(41000, 'cannot delete the data');
+    end if;
+end;
+/
+ALTER TRIGGER "JAVERIA"."CHECK_DEPART_DELETE" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger CHECK_RESULT_DELETE
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."CHECK_RESULT_DELETE" 
+before delete on scholarship 
+for each row
+begin
+if :old.total_amount != 1000 then
+    raise_application_error(-20019, 'cannot delete the data');
+    end if;
+end;
+/
+ALTER TRIGGER "JAVERIA"."CHECK_RESULT_DELETE" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger CHECK_SEMESTER_UPDATE
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."CHECK_SEMESTER_UPDATE" 
+BEFORE UPDATE ON student
+FOR EACH ROW
+BEGIN
+    IF :NEW.semester > 10 THEN
+        RAISE_APPLICATION_ERROR(-20002, 'Semester cannot be more than 10');
+    END IF;
+END;
+/
+ALTER TRIGGER "JAVERIA"."CHECK_SEMESTER_UPDATE" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger CHECK_START_DATE
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."CHECK_START_DATE" 
+before update on scholarship
+for each row
+begin
+if :old.start_date is null then
+    raise_application_error(-70012, 'start_date cannot be empty');
+    end if;
+end;
+/
+ALTER TRIGGER "JAVERIA"."CHECK_START_DATE" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger CHECK_STUDENT_DELETE
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."CHECK_STUDENT_DELETE" 
+BEFORE DELETE ON student
+FOR EACH ROW
+BEGIN
+    IF :OLD.semester != 0 THEN
+        RAISE_APPLICATION_ERROR(-20007, 'Cannot delete real student record!');
+    END IF;
+END;
+/
+ALTER TRIGGER "JAVERIA"."CHECK_STUDENT_DELETE" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger COPY_STUDENT_TO_SCHOLARSHIP
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "JAVERIA"."COPY_STUDENT_TO_SCHOLARSHIP" 
+AFTER INSERT ON student
+FOR EACH ROW
+BEGIN
+    INSERT INTO scholarship (s_id, s_name)
+    VALUES ( (SELECT NVL(MAX(s_id),100) + 1 FROM scholarship), 'N/A');
+END;
+/
+ALTER TRIGGER "JAVERIA"."COPY_STUDENT_TO_SCHOLARSHIP" ENABLE;
+--------------------------------------------------------
+--  DDL for Procedure ADD_DEPARTMENT_MIN
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."ADD_DEPARTMENT_MIN" (P_ID NUMBER, P_NAME VARCHAR2)
+AS 
+BEGIN
+INSERT INTO DEPARTMENT(D_ID, D_NAME)
+VALUES(P_ID, P_NAME);
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_FUNCDING_SOURCE_MIN
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."ADD_FUNCDING_SOURCE_MIN" (P_ID NUMBER, P_NAME VARCHAR2)
+AS
+BEGIN
+INSERT INTO FUNDING_SOURCE(f_source_id, source_name)
+VALUES(p_id, p_name);
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_FUNDING_SOURCE_MIN
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."ADD_FUNDING_SOURCE_MIN" (P_ID NUMBER, P_NAME VARCHAR2)
+AS
+BEGIN
+INSERT INTO FUNDING_SOURCE(f_source_id, source_name)
+VALUES(p_id, p_name);
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_SCHOLARSHIP
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."ADD_SCHOLARSHIP" (p_sid NUMBER, p_sname VARCHAR2, p_total_amt NUMBER, pfund VARCHAR2)
+AS 
+BEGIN
+    INSERT INTO SCHOLARSHIP(s_id, s_name, total_amount, fund_type)
+    VALUES (p_sid, p_sname, p_total_amt, pfund);
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_SCHOLARSHIP_MIN
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."ADD_SCHOLARSHIP_MIN" (p_sid NUMBER, p_amnt NUMBER)
+AS 
+BEGIN
+INSERT INTO SCHOLARSHIP(s_id, total_amount)
+VALUES (p_sid, p_amnt);
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_STUDENT
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."ADD_STUDENT" (p_std_id NUMBER, p_first_name VARCHAR2, p_cnic NUMBER, p_std_phone_no NUMBER,p_program VARCHAR2, p_semester NUMBER) AS
+BEGIN
+    INSERT INTO student (std_id, first_name, cnic, std_phone_no, program, semester)
+    VALUES (p_std_id, p_first_name, p_cnic,  p_std_phone_no, p_program, p_semester);
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure ADD_STUDENT_MIN
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."ADD_STUDENT_MIN" (p_std_id NUMBER, p_first_name VARCHAR2) AS
+BEGIN
+    INSERT INTO student (std_id, first_name)
+    VALUES (p_std_id, p_first_name);
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure DELETE_DEPARTMENT
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."DELETE_DEPARTMENT" (p_id number)
+as
+begin
+delete department
+where d_id = p_id;
+end;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure DELETE_FUNDING_SOURCE
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."DELETE_FUNDING_SOURCE" (P_ID NUMBER)
+AS BEGIN
+DELETE FUNDING_SOURCE
+WHERE F_SOURCE_ID = P_ID;
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure DELETE_SCHOLARSHIP
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."DELETE_SCHOLARSHIP" (p_sid NUMBER)
+AS
+BEGIN
+    DELETE FROM SCHOLARSHIP
+    WHERE s_id = p_sid;
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure DELETE_STUDENT
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."DELETE_STUDENT" (p_std_id NUMBER) 
+AS
+BEGIN
+    DELETE FROM student
+    WHERE std_id = p_std_id;
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure DEPARTMENT_MIN
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."DEPARTMENT_MIN" (P_ID NUMBER, P_NAME VARCHAR2)
+AS 
+BEGIN
+INSERT INTO DEPARTMENT(D_ID, D_NAME)
+VALUES(P_ID, P_NAME);
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure UPDATE_DEPARTMENT
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."UPDATE_DEPARTMENT" (P_ID NUMBER, P_NAME VARCHAR2)
+AS 
+BEGIN 
+UPDATE DEPARTMENT
+SET D_NAME = P_NAME
+WHERE D_ID = P_ID;
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure UPDATE_DEPPARTMENT
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."UPDATE_DEPPARTMENT" (P_ID NUMBER, P_NAME VARCHAR2)
+AS 
+BEGIN 
+UPDATE DEPARTMENT
+SET D_NAME = P_NAME
+WHERE D_ID = P_ID;
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure UPDATE_FUNDING_SOURCE
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."UPDATE_FUNDING_SOURCE" (P_ID NUMBER, P_TYPE VARCHAR2)
+AS
+BEGIN
+UPDATE FUNDING_SOURCE
+SET TYPE = P_TYPE
+WHERE F_SOURCE_ID = P_ID;
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure UPDATE_SCHOLARSHIP
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."UPDATE_SCHOLARSHIP" (
+    p_sid NUMBER,
+    p_total_amt NUMBER,
+    p_fund VARCHAR2
+)
+AS
+BEGIN
+    UPDATE SCHOLARSHIP
+    SET total_amount = p_total_amt,
+        fund_type    = p_fund
+    WHERE s_id = p_sid;
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Procedure UPDATE_STUDENT
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "JAVERIA"."UPDATE_STUDENT" (p_std_id NUMBER, p_semester NUMBER, p_s_id NUMBER) 
+AS
+BEGIN
+    UPDATE student
+    SET
+        semester        = p_semester,
+        s_id            = p_s_id
+    WHERE std_id = p_std_id;
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Function GET_SCHOLARSHIP_AMOUNT
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "JAVERIA"."GET_SCHOLARSHIP_AMOUNT" (p_id number)
+return number
+as amnt number;
+begin
+select total_amount into amnt
+from scholarship
+where s_id = p_id;
+return amnt;
+end;
+
+/
+--------------------------------------------------------
+--  DDL for Function GET_SCHOLARSHIP_TYPE
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "JAVERIA"."GET_SCHOLARSHIP_TYPE" (p_id number)
+return varchar2
+as typ varchar2(20);
+begin 
+select fund_type into typ
+from scholarship
+where s_id = p_id;
+return typ;
+end;
+
+/
+--------------------------------------------------------
+--  DDL for Function GET_STUDENT_ADD_DATE
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "JAVERIA"."GET_STUDENT_ADD_DATE" (p_id number)
+return date
+as add_date date;
+begin 
+select addmission_date into add_date
+from student
+where std_id = p_id;
+return add_date;
+end;
+
+/
+--------------------------------------------------------
+--  DDL for Function GET_STUDENT_PHN_NO
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "JAVERIA"."GET_STUDENT_PHN_NO" (p_id number)
+return number
+as phn_no number;
+begin 
+select std_phone_no into phn_no
+from student
+where std_id = p_id;
+return phn_no;
+end;
+
+/
+--------------------------------------------------------
+--  DDL for Function GET_STUDENT_PROGRAM
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "JAVERIA"."GET_STUDENT_PROGRAM" (P_ID NUMBER)
+RETURN VARCHAR2
+AS PRGM VARCHAR2(20);
+BEGIN 
+SELECT PROGRAM INTO PRGM
+FROM STUDENT
+WHERE STD_ID = P_ID;
+RETURN PRGM;
+END;
+
+/
+--------------------------------------------------------
+--  DDL for Function GET_STUDENT_SEMESTER
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE FUNCTION "JAVERIA"."GET_STUDENT_SEMESTER" (p_id NUMBER)
+RETURN NUMBER
+AS
+    sem NUMBER;
+BEGIN
+    SELECT semester INTO sem
+    FROM student
+    WHERE std_id = p_id;
+
+    RETURN sem;
+END;
+
+/
+--------------------------------------------------------
+--  Constraints for Table DEPARTMENT
+--------------------------------------------------------
+
+  ALTER TABLE "JAVERIA"."DEPARTMENT" MODIFY ("D_ID" NOT NULL ENABLE);
+  ALTER TABLE "JAVERIA"."DEPARTMENT" MODIFY ("D_NAME" NOT NULL ENABLE);
+  ALTER TABLE "JAVERIA"."DEPARTMENT" ADD CONSTRAINT "DEPARTMENT_PK" PRIMARY KEY ("D_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table SCHOLARSHIP
+--------------------------------------------------------
+
+  ALTER TABLE "JAVERIA"."SCHOLARSHIP" MODIFY ("S_ID" NOT NULL ENABLE);
+  ALTER TABLE "JAVERIA"."SCHOLARSHIP" MODIFY ("TOTAL_AMOUNT" NOT NULL ENABLE);
+  ALTER TABLE "JAVERIA"."SCHOLARSHIP" ADD CONSTRAINT "SCHOLARSHIP_PK" PRIMARY KEY ("S_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table RESULT
+--------------------------------------------------------
+
+  ALTER TABLE "JAVERIA"."RESULT" MODIFY ("R_ID" NOT NULL ENABLE);
+  ALTER TABLE "JAVERIA"."RESULT" MODIFY ("CGPA" NOT NULL ENABLE);
+  ALTER TABLE "JAVERIA"."RESULT" ADD CONSTRAINT "RESULT_PK" PRIMARY KEY ("R_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table STUDENT
+--------------------------------------------------------
+
+  ALTER TABLE "JAVERIA"."STUDENT" MODIFY ("STD_ID" NOT NULL ENABLE);
+  ALTER TABLE "JAVERIA"."STUDENT" ADD CONSTRAINT "STUDENT_PK" PRIMARY KEY ("STD_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "JAVERIA"."STUDENT" MODIFY ("FIRST_NAME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table FUNDING_SOURCE
+--------------------------------------------------------
+
+  ALTER TABLE "JAVERIA"."FUNDING_SOURCE" MODIFY ("F_SOURCE_ID" NOT NULL ENABLE);
+  ALTER TABLE "JAVERIA"."FUNDING_SOURCE" MODIFY ("SOURCE_NAME" NOT NULL ENABLE);
+  ALTER TABLE "JAVERIA"."FUNDING_SOURCE" ADD CONSTRAINT "FUNDING_SOURCE_PK" PRIMARY KEY ("F_SOURCE_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table UNIVERSITY
+--------------------------------------------------------
+
+  ALTER TABLE "JAVERIA"."UNIVERSITY" MODIFY ("UNI_ID" NOT NULL ENABLE);
+  ALTER TABLE "JAVERIA"."UNIVERSITY" ADD CONSTRAINT "UNIVERSITY_PK" PRIMARY KEY ("UNI_ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "JAVERIA"."UNIVERSITY" MODIFY ("C_NAME" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Ref Constraints for Table DEPARTMENT
+--------------------------------------------------------
+
+  ALTER TABLE "JAVERIA"."DEPARTMENT" ADD CONSTRAINT "DEPARTMENT_FK1" FOREIGN KEY ("UNI_ID")
+	  REFERENCES "JAVERIA"."UNIVERSITY" ("UNI_ID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table RESULT
+--------------------------------------------------------
+
+  ALTER TABLE "JAVERIA"."RESULT" ADD CONSTRAINT "RESULT_FK1" FOREIGN KEY ("STD_ID")
+	  REFERENCES "JAVERIA"."STUDENT" ("STD_ID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table SCHOLARSHIP
+--------------------------------------------------------
+
+  ALTER TABLE "JAVERIA"."SCHOLARSHIP" ADD CONSTRAINT "SCHOLARSHIP_FK1" FOREIGN KEY ("F_SOURCE_ID")
+	  REFERENCES "JAVERIA"."FUNDING_SOURCE" ("F_SOURCE_ID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table STUDENT
+--------------------------------------------------------
+
+  ALTER TABLE "JAVERIA"."STUDENT" ADD CONSTRAINT "STUDENT_FK1" FOREIGN KEY ("S_ID")
+	  REFERENCES "JAVERIA"."SCHOLARSHIP" ("S_ID") ENABLE;
+  ALTER TABLE "JAVERIA"."STUDENT" ADD CONSTRAINT "STUDENT_FK2" FOREIGN KEY ("D_ID")
+	  REFERENCES "JAVERIA"."DEPARTMENT" ("D_ID") ENABLE;
