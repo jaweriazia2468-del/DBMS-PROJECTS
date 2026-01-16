@@ -1,2 +1,2 @@
 # DBMS-PROJECTS
-A collection of enterprise-grade database solutions built with Oracle SQL. Features include 3NF schema design, PL/SQL automation (Triggers/Procedures), and successful schema migrations via Data Pump (EXPDP/IMPDP).
+A Database Management System project built using SQL (Oracle SQL Developer & MySQL). Implemented a complete backend database solution including schema design, DDL, DML, DCL, TCL, DQL commands, normalization, and deployment. The project demonstrates relational database design, query building, transaction management, data integrity, and effective use of SQL for structured data handling, reflecting skills relevant to backend database development and management.
